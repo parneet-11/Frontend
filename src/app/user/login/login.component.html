@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="loginForm"  class="border rounded-3">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="border rounded-3">
     <div class="row g-0">
       <div class="col text-center p-2 mb-3 bg-light">
         <span class="fs-3">Login</span>
@@ -9,14 +9,18 @@
       <div class="col">
         <label for ="name" class="form-label">Enter your UserName</label>
         <input type ="text" class="form-control" id="name"  formControlName="name">
-
+        <span *ngIf="!loginForm.controls['name'].valid && loginForm.controls['name'].touched " class="error-block">
+          Please provide User Name
+        </span>
       </div>
     </div>
     <div class="row mb-3 p-2">
       <div class="col">
         <label for ="password" class="form-label">Enter your Password</label>
         <input type ="text" class="form-control" id="password" formControlName="password">
-
+        <span *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched " class="error-block">
+          Please provide Password
+        </span>
       </div>
     </div>
     <div class="row mb-3">

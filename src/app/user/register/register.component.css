@@ -2,8 +2,14 @@ form{
   width: 500px;
 }
 .container{
-  height: 100vh;
+  /* height: 100vh;*/
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+.error-block{
+  color: red;
 }

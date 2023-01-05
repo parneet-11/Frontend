@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="registerForm"  class="border rounded-3">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"  class="border rounded-3">
     <div class="row g-0">
       <div class="col text-center p-2 mb-3 bg-light">
         <span class="fs-3">Register</span>
@@ -10,6 +10,9 @@
       <div class="col">
         <label for ="name" class="form-label">Name</label>
         <input type ="text" class="form-control" id="name"  formControlName="name">
+        <span *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched " class="error-block">
+          Please provide name
+        </span>
 
       </div>
     </div>
@@ -18,13 +21,32 @@
       <div class="col">
         <label for ="email" class="form-label">Email</label>
         <input type ="email" class="form-control" id="email" formControlName="email">
-
+        <span *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched " class="error-block">
+         <span  *ngIf="registerForm.controls['email'].hasError('required')">
+          Please provide Email
+         </span>
+         <span  *ngIf="registerForm.controls['email'].hasError('email')">
+          Please provide valid Email
+         </span>
+        </span>
       </div>
     </div>
     <div class="row mb-3 p-2">
       <div class="col">
         <label for ="password" class="form-label">Password</label>
         <input type ="text" class="form-control" id="password" formControlName="password">
+        <span *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched " class="error-block">
+          <span  *ngIf="registerForm.controls['password'].hasError('required')">
+           Please provide Password
+          </span>
+          <span  *ngIf="registerForm.controls['password'].hasError('minlength')">
+           Please provide minimum length of 8
+          </span>
+          <span  *ngIf="registerForm.controls['password'].hasError('maxlength')">
+            Please provide maximum length of 15
+           </span>
+         </span>
+
 
       </div>
     </div>
@@ -33,6 +55,15 @@
       <div class="col">
         <label for ="confirmPassword" class="form-label"> Confirm Password</label>
         <input type ="text" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+        <span *ngIf="!registerForm.controls['confirmPassword'].valid && registerForm.controls['confirmPassword'].touched " class="error-block">
+          <span  *ngIf="registerForm.controls['confirmPassword'].hasError('required')">
+            Please provide Confirm Password
+           </span>
+           <span  *ngIf="registerForm.controls['confirmPassword'].hasError('notmatched')">
+            Password don't match
+            </span>
+        </span>
+
 
       </div>
     </div>
@@ -40,7 +71,7 @@
     <div class="row mb-3">
 
       <div class="col-6 offset-3">
-        <button type="submit" class="btn btn-primary m-3">Submit</button>
+        <button type="submit" class="btn btn-primary m-3" [disabled]="!registerForm.valid">Submit</button>
           <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
       </div>
 
