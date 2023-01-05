@@ -15,11 +15,13 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.createLoginForm();
+
   }
 
 
   createLoginForm(){
     this. loginForm = this.fb.group({
+      userId: ['', Validators.required],
       name: ['', Validators.required],
       password:['', Validators.required],
 
@@ -28,11 +30,16 @@ export class LoginComponent implements OnInit {
   onSubmit(){
    this.userService.userLogin(this.loginForm.value).subscribe(data=>{
     console.log(data);
+
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('uid',this.loginForm.value.userId );
+    this.router.navigate(['/home']);
    },errors=>{
     console.log(errors);
    });
+
   // this.loginForm.reset();
-   this.router.navigate(['/']);
+
 
   }
 

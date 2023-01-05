@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { UserServiceService } from './services/user-service.service';
 import { ProductServiceService } from './services/product-service.service';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { CustomInterceptor } from './custom.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,13 @@ import { UpdateProductComponent } from './products/update-product/update-product
     HttpClientModule
   ],
   providers: [UserServiceService,
-  ProductServiceService],
+  ProductServiceService,
+  {
+    provide:HTTP_INTERCEPTORS,
+     useClass:CustomInterceptor,
+    multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,15 @@
     </div>
     <div class="row mb-3 p-2">
       <div class="col">
+        <label for ="userId" class="form-label">Enter your User id</label>
+        <input type ="text" class="form-control" id="userId"  formControlName="userId">
+        <span *ngIf="!loginForm.controls['userId'].valid && loginForm.controls['userId'].touched " class="error-block">
+          Please provide User Id
+        </span>
+      </div>
+    </div>
+    <div class="row mb-3 p-2">
+      <div class="col">
         <label for ="name" class="form-label">Enter your UserName</label>
         <input type ="text" class="form-control" id="name"  formControlName="name">
         <span *ngIf="!loginForm.controls['name'].valid && loginForm.controls['name'].touched " class="error-block">
@@ -26,7 +35,7 @@
     <div class="row mb-3">
       <div class="col-6 offset-3">
         <div class="d-grid">
-          <button type="submit" class="btn btn-primary m-3">Login</button>
+          <button type="submit" class="btn btn-primary m-3" [disabled]="!loginForm.valid">Login</button>
         </div>
 
       </div>
