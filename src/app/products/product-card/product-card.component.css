@@ -1,0 +1,5 @@
+.card:hover {
+  transform: scale(1.1,1.1); /*zoom (x,y)*/
+  transition-duration: 500ms; /* time taken*/
+  transition-timing-function: ease-out; /*smoothness*/
+}
