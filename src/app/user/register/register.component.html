@@ -6,10 +6,10 @@
       </div>
     </div>
 
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-1">
       <div class="col">
         <label for ="name" class="form-label">Name</label>
-        <input type ="text" class="form-control" id="name"  formControlName="name">
+        <input type ="text" class="form-control" id="name"  formControlName="name" autocomplete="off">
         <span *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched " class="error-block">
           Please provide name
         </span>
@@ -17,10 +17,10 @@
       </div>
     </div>
 
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-1">
       <div class="col">
         <label for ="email" class="form-label">Email</label>
-        <input type ="email" class="form-control" id="email" formControlName="email">
+        <input type ="email" class="form-control" id="email" formControlName="email" autocomplete="off">
         <span *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched " class="error-block">
          <span  *ngIf="registerForm.controls['email'].hasError('required')">
           Please provide Email
@@ -31,10 +31,10 @@
         </span>
       </div>
     </div>
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-1">
       <div class="col">
         <label for ="password" class="form-label">Password</label>
-        <input type ="text" class="form-control" id="password" formControlName="password">
+        <input type ="text" class="form-control" id="password" formControlName="password" autocomplete="off">
         <span *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched " class="error-block">
           <span  *ngIf="registerForm.controls['password'].hasError('required')">
            Please provide Password
@@ -51,10 +51,10 @@
       </div>
     </div>
 
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-1">
       <div class="col">
         <label for ="confirmPassword" class="form-label"> Confirm Password</label>
-        <input type ="text" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+        <input type ="text" class="form-control" id="confirmPassword" formControlName="confirmPassword" autocomplete="off">
         <span *ngIf="!registerForm.controls['confirmPassword'].valid && registerForm.controls['confirmPassword'].touched " class="error-block">
           <span  *ngIf="registerForm.controls['confirmPassword'].hasError('required')">
             Please provide Confirm Password

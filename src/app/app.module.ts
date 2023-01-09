@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { UserServiceService } from './services/user-service.service';
 import { ProductServiceService } from './services/product-service.service';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
-import { CustomInterceptor } from './custom.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -39,11 +39,7 @@ import { CustomInterceptor } from './custom.interceptor';
   ],
   providers: [UserServiceService,
   ProductServiceService,
-  {
-    provide:HTTP_INTERCEPTORS,
-     useClass:CustomInterceptor,
-    multi:true
-  }
+
 ],
   bootstrap: [AppComponent]
 })

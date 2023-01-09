@@ -5,28 +5,28 @@
         <span class="fs-3">Login</span>
       </div>
     </div>
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-2">
       <div class="col">
         <label for ="userId" class="form-label">Enter your User id</label>
-        <input type ="text" class="form-control" id="userId"  formControlName="userId">
+        <input type ="text" class="form-control" id="userId"  formControlName="userId" autocomplete="off">
         <span *ngIf="!loginForm.controls['userId'].valid && loginForm.controls['userId'].touched " class="error-block">
           Please provide User Id
         </span>
       </div>
     </div>
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-2">
       <div class="col">
         <label for ="name" class="form-label">Enter your UserName</label>
-        <input type ="text" class="form-control" id="name"  formControlName="name">
+        <input type ="text" class="form-control" id="name"  formControlName="name" autocomplete="off">
         <span *ngIf="!loginForm.controls['name'].valid && loginForm.controls['name'].touched " class="error-block">
           Please provide User Name
         </span>
       </div>
     </div>
-    <div class="row mb-3 p-2">
+    <div class="row mb-2 p-2">
       <div class="col">
         <label for ="password" class="form-label">Enter your Password</label>
-        <input type ="text" class="form-control" id="password" formControlName="password">
+        <input type ="text" class="form-control" id="password" formControlName="password" autocomplete="off">
         <span *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched " class="error-block">
           Please provide Password
         </span>

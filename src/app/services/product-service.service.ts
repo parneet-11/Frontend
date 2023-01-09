@@ -20,7 +20,7 @@ export class ProductServiceService {
 
   addProduct(data:FormGroup){
     console.log("data in service" +JSON.stringify(data));
-
+    console.log('http://localhost:5066/api/Products/AddProduct')
     return this.http.post('http://localhost:5066/api/Products/AddProduct',data)
   }
 

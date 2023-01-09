@@ -9,38 +9,46 @@
     <div class="row  p-2">
       <div class="col">
         <label for ="name" class="form-label">Name</label>
-        <input type ="text" class="form-control" id="name"  formControlName="name">
-
+        <input type ="text" class="form-control" id="name"  formControlName="name" autocomplete="off">
+        <span *ngIf="!addproductForm.controls['name'].valid && addproductForm.controls['name'].touched " class="error-block">
+          Please provide product name
+        </span>
       </div>
     </div>
 
     <div class="row  p-2">
       <div class="col">
         <label for ="company" class="form-label">Comapany Name</label>
-        <input type ="text" class="form-control" id="company" formControlName="company">
-
+        <input type ="text" class="form-control" id="company" formControlName="company" autocomplete="off">
+        <span *ngIf="!addproductForm.controls['company'].valid && addproductForm.controls['company'].touched " class="error-block">
+          Please provide product company
+        </span>
       </div>
     </div>
     <div class="row  p-2">
       <div class="col">
         <label for ="model" class="form-label">Model</label>
-        <input type ="text" class="form-control" id="model" formControlName="model">
-
+        <input type ="text" class="form-control" id="model" formControlName="model" autocomplete="off">
+        <span *ngIf="!addproductForm.controls['model'].valid && addproductForm.controls['model'].touched " class="error-block">
+          Please provide model
+        </span>
       </div>
     </div>
 
     <div class="row  p-2">
       <div class="col">
         <label for ="price" class="form-label"> Price</label>
-        <input type ="number" class="form-control" id="price" formControlName="price">
-
+        <input type ="number" class="form-control" id="price" formControlName="price" autocomplete="off">
+        <span *ngIf="!addproductForm.controls['price'].valid && addproductForm.controls['price'].touched " class="error-block">
+          Please provide price
+        </span>
       </div>
     </div>
 
     <div class="row mb-3">
 
       <div class="col-6 offset-3">
-        <button type="submit" class="btn btn-primary m-3">Submit</button>
+        <button type="submit" class="btn btn-primary m-3" [disabled]="!addproductForm.valid">Submit</button>
           <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
       </div>
 

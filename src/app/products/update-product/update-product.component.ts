@@ -36,7 +36,7 @@ export class UpdateProductComponent implements OnInit {
     });
     console.log(form);
     console.log(this.updateproductForm)
-    this.router.navigate(['/app-product-card'])
+    this.router.navigateByUrl('/app-product-card')
 
   }
 }

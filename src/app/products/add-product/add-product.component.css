@@ -7,3 +7,10 @@ form{
   justify-content: center;
   align-items: center;
 }
+
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+.error-block{
+  color: red;
+}

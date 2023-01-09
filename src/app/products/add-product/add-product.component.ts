@@ -24,10 +24,14 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(form:FormGroup){
-    this.productService.addProduct(form);
+    this.productService.addProduct(form).subscribe(data=>{
+      console.log(data)
+    },errors=>{
+      console.log(errors);
+    });
     console.log(form);
     console.log(this.addproductForm)
-    this.router.navigate(['/app-product-card'])
+    this.router.navigateByUrl('/app-product-card')
 
   }
 }
